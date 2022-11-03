@@ -37,7 +37,7 @@ def get_videos_id(P_id):
 
     return video_list
 
-#動画のタイトル、日付、閲覧数、高評価数、コメント数、URL、アイコンをリスト+辞書型で返す
+#動画のタイトル、日付、閲覧数、高評価数、コメント数、URL、サムネをリスト+辞書型で返す
 def get_videos_status(V_lists):
     youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
                     developerKey=DEVELOPER_KEY)
@@ -70,7 +70,7 @@ def csv_output(videos):
     
     f = open('output.csv', 'w', encoding='utf_8_sig')
     writer = csv.writer(f)
-    writer.writerow(['タイトル','日付','視聴回数','高評価数','コメント数','URL','アイコン'])
+    writer.writerow(['タイトル','日付','視聴回数','高評価数','コメント数','URL','サムネ'])
     for i in range(len(videos)):
         writer.writerow([
             videos[i]['title'],
